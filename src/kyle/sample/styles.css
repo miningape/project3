@@ -1,0 +1,23 @@
+/*.root {
+
+    -fx-background-color: #292929;
+}
+
+.label {
+    -fx-text-fill: #F2F3F4;
+}
+
+/* Background color of the control itself
+.choice-box {
+    -fx-background-color: #303030;
+    -fx-border-color: #F2F3F4;
+    -fx-mark-color: orange;
+}
+
+.choice-box .context-menu { -fx-background-color: #303030; }
+.choice-box .menu-item:focused { -fx-background-color: orange; }
+.choice-box .menu-item > .label { -fx-text-fill: #F2F3F4; }
+.choice-box .menu-item:focused > .label { -fx-text-fill: #303030; }
+
+/* Selected item text color on the control itself
+.choice-box > .label { -fx-text-fill: #F2F3F4; } */
