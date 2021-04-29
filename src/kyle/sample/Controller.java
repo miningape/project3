@@ -15,21 +15,30 @@ import java.util.ResourceBundle;
 import java.util.regex.*;
 
 
+/**
+ * This is the controller in the MVC
+ *
+ * It sanitises user inputs by using regex to test if they contain only numbers, this makes SQL injection impossible
+ * and this is only possible at the TextField, and it allows negative or positive, its or floats but not (digit.)
+ */
 public class Controller implements Initializable {
     Query model = null;
 
     String currentStudentID = null;
 
+    // Labels used for displaying info
     @FXML private Label studentID;
     @FXML private Label studentName;
     @FXML private Label studentAddress;
     @FXML private Label studentAvg;
     @FXML private Label classGradeAvg;
 
+    // Choice boxes used for limited selections
     @FXML private ChoiceBox<String> studentChoiceBox;
     @FXML private ChoiceBox<String> classesMissingGradesChoiceBox;
     @FXML private ChoiceBox<String> courseGradeAvgChoiceBox;
 
+    // Table stuff
     @FXML private TableView<Table_Row> scoreTableView;
     @FXML private TableColumn<Table_Row, String> classColumn;
     @FXML private TableColumn<Table_Row, String> classIDColumn;
@@ -37,10 +46,11 @@ public class Controller implements Initializable {
     @FXML private TableColumn<Table_Row, String> singleGradeColumn;
     @FXML private TableColumn<Table_Row, String> averageGradeColumn;
 
+    // Where the input is from
     @FXML private TextField gradeInput;
 
-    @FXML
-    private Alert alertUser = new Alert( Alert.AlertType.NONE );
+    // Alert that is used for telling the user they did something wrong
+    @FXML private Alert alertUser = new Alert( Alert.AlertType.NONE );
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -65,7 +75,10 @@ public class Controller implements Initializable {
         averageGradeColumn.setCellValueFactory(new PropertyValueFactory<Table_Row, String>("avgGrade"));
     }
 
-    // Actually updates what is on the screen
+    /**
+     * Changes all the information about a student, called when info about a student changes (i.e when student is
+     * selected or when grade is added)
+     */
     private void updateStudentView() {
         // Get the student ID from the dropdown
         Pattern studentIDregex = Pattern.compile("ID: ([0-9]+)$");
@@ -115,6 +128,9 @@ public class Controller implements Initializable {
         this.classGradeAvg.setText( "Course Average Grade: " + model.getAverageGrade( classID ) );
     }
 
+    /**
+     * Called when add button is pressed, scans for studentID, classID, and gets the grade input
+     */
     public void addGradeToCourse( ActionEvent e ) {
         if ( studentChoiceBox.getValue() != null && classesMissingGradesChoiceBox.getValue() != null ) {
             if ( gradeInput.getText() != null ) {
@@ -125,7 +141,7 @@ public class Controller implements Initializable {
                 String classID = classSelect.group(1);
 
                 // Make sure our input is good (This prevents sql injection)
-                Pattern inputRegex = Pattern.compile("^[0-9]+$");
+                Pattern inputRegex = Pattern.compile("^-?\\d+(?:\\.\\d+)?$");
                 Matcher inputMatcher = inputRegex.matcher(gradeInput.getText());
                 inputMatcher.find();
 

@@ -8,12 +8,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kyle.sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kyle.sample.Controller">
    <children>
       <ChoiceBox fx:id="studentChoiceBox" layoutX="125.0" layoutY="14.0" prefWidth="150.0" />
-      <Button layoutX="417.0" layoutY="222.0" mnemonicParsing="false" onAction="#addGradeToCourse" text="Add" />
+      <Button layoutX="691.0" layoutY="327.0" mnemonicParsing="false" onAction="#addGradeToCourse" text="Add" />
       <Label layoutX="25.0" layoutY="18.0" text="Select A Student" />
-      <TableView fx:id="scoreTableView" layoutX="24.0" layoutY="172.0" prefHeight="200.0" prefWidth="374.0">
+      <TableView fx:id="scoreTableView" layoutX="25.0" layoutY="277.0" prefHeight="200.0" prefWidth="378.0">
         <columns>
           <TableColumn fx:id="classColumn" prefWidth="75.0" text="Course" />
           <TableColumn fx:id="classIDColumn" prefWidth="75.0" text="Course ID" />
@@ -22,16 +22,16 @@
             <TableColumn fx:id="averageGradeColumn" prefWidth="75.0" text="Class Avg." />
         </columns>
       </TableView>
-      <Label fx:id="studentAvg" layoutX="237.0" layoutY="151.0" prefHeight="17.0" prefWidth="161.0" text="Student Average Grade:" />
-      <Label layoutX="25.0" layoutY="151.0" text="All Grades:" />
-      <TextField fx:id="gradeInput" layoutX="418.0" layoutY="197.0" />
-      <ChoiceBox fx:id="classesMissingGradesChoiceBox" layoutX="417.0" layoutY="172.0" prefWidth="150.0" />
-      <Label layoutX="418.0" layoutY="151.0" text="Add Missing Grade" />
-      <Label fx:id="studentID" layoutX="24.0" layoutY="39.0" text="Student ID:" />
-      <Label fx:id="studentName" layoutX="24.0" layoutY="56.0" text="Name:" />
-      <Label fx:id="studentAddress" layoutX="22.0" layoutY="73.0" text="Adress:" />
-      <ChoiceBox fx:id="courseGradeAvgChoiceBox" layoutX="417.0" layoutY="289.0" prefWidth="150.0" />
-      <Label layoutX="417.0" layoutY="272.0" text="Average Grade For Course" />
-      <Label fx:id="classGradeAvg" layoutX="418.0" layoutY="314.0" text="Course Average Grade:" />
+      <Label fx:id="studentAvg" layoutX="238.0" layoutY="256.0" prefHeight="17.0" prefWidth="161.0" text="Student Average Grade:" />
+      <Label layoutX="26.0" layoutY="256.0" text="All Grades:" />
+      <TextField fx:id="gradeInput" layoutX="692.0" layoutY="302.0" />
+      <ChoiceBox fx:id="classesMissingGradesChoiceBox" layoutX="691.0" layoutY="277.0" prefWidth="150.0" />
+      <Label layoutX="692.0" layoutY="256.0" text="Add Missing Grade" />
+      <Label fx:id="studentID" layoutX="25.0" layoutY="114.0" text="Student ID:" />
+      <Label fx:id="studentName" layoutX="25.0" layoutY="131.0" text="Name:" />
+      <Label fx:id="studentAddress" layoutX="25.0" layoutY="148.0" text="Adress:" />
+      <ChoiceBox fx:id="courseGradeAvgChoiceBox" layoutX="691.0" layoutY="394.0" prefWidth="150.0" />
+      <Label layoutX="691.0" layoutY="377.0" text="Average Grade For Course" />
+      <Label fx:id="classGradeAvg" layoutX="692.0" layoutY="419.0" text="Course Average Grade:" />
    </children>
 </AnchorPane>
